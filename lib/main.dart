@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:twofingerpinch/home_page/homescreen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:twofingerpinch/bloc/increment_bloc/increment_bloc.dart';
+import 'package:twofingerpinch/home_page/home_screen_bloc.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  final incrementBloc = IncrementBloc();
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Two finger pinch Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return BlocProvider(
+      create: (context) => incrementBloc,
+      child: MaterialApp(
+        title: 'Two finger pinch Example',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: HomeScreenBloc(),
       ),
-      home: HomeScreen(),
     );
   }
 }
