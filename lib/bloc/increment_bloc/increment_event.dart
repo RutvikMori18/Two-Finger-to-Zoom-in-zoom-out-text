@@ -6,11 +6,9 @@ abstract class IncrementEvent extends Equatable {
 
 class UpdateScaleEvent extends IncrementEvent {
   final double zoom;
-  // final double lastPosition, currentPosition;
-  // final Offset offset;
+
   const UpdateScaleEvent(
     this.zoom,
-    /* this.lastPosition, this.currentPosition, this.offset*/
   );
   @override
   // TODO: implement props
@@ -19,11 +17,8 @@ class UpdateScaleEvent extends IncrementEvent {
 
 class UpdateCurrentPositionEvent extends IncrementEvent {
   final Offset offset;
-  // final double lastPosition;
-  // final double currentPosition;
   const UpdateCurrentPositionEvent(
     this.offset,
-    /*this.lastPosition, this.currentPosition*/
   );
   @override
   // TODO: implement props
@@ -31,12 +26,7 @@ class UpdateCurrentPositionEvent extends IncrementEvent {
 }
 
 class ComitScalePositionEvent extends IncrementEvent {
-  // final Offset offset;
-  // final double lastPosition;
-  // final double currentPosition;
-
-  const ComitScalePositionEvent(
-      /*this.offset,*/ /*this.lastPosition, */ /*this.currentPosition*/);
+  const ComitScalePositionEvent();
   @override
   // TODO: implement props
   List<Object?> get props => [];

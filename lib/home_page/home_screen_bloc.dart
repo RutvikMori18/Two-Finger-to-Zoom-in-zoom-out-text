@@ -151,74 +151,78 @@ class HomeScreenBloc extends StatelessWidget {
                 Positioned.fill(child: Image.asset('assets/bg.jpg')),
                 //FOR TEXT
 
-                for (int i = 0; i < data.length; i++)
-                  BlocBuilder<IncrementBloc, IncrementState>(
-                    builder: (context, state) {
-                      if (state is ChangePositionState) {
-                        return Positioned(
-                          left: state.changePositionOffset.dx,
-                          top: state.changePositionOffset.dy,
-                          child: Draggable(
-                            feedback: Container(),
-                            onDragEnd: (details) {
-                              incrementBloc.add(
-                                  UpdateCurrentPositionEvent(details.offset));
-                              // updatePosition(details.offset);
-                            },
-                            child: Transform.scale(
-                              scale: state.currentPosition,
-                              child: Container(
-                                margin: const EdgeInsets.all(15.0),
-                                padding: const EdgeInsets.all(3.0),
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.blueAccent,
-                                  ),
+                // for (int i = 0; i < data.length; i++)
+                BlocBuilder<IncrementBloc, IncrementState>(
+                  builder: (context, state) {
+                    print('what is the state of the app--------------$state');
+                    if (state is ChangePositionState) {
+                      return Positioned(
+                        left: state.changePositionOffset.dx,
+                        top: state.changePositionOffset.dy,
+                        child: Draggable(
+                          feedback: Container(),
+                          onDragEnd: (details) {
+                            incrementBloc.add(
+                                UpdateCurrentPositionEvent(details.offset));
+                            // updatePosition(details.offset);
+                          },
+                          child: Transform.scale(
+                            scale: state.currentPosition,
+                            child: Container(
+                              margin: const EdgeInsets.all(15.0),
+                              padding: const EdgeInsets.all(3.0),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.blueAccent,
                                 ),
-                                child: Text("HELLO WORLD"
-                                    // data[i],
-                                    ),
+                              ),
+                              child: const Text(
+                                "HELLO WORLD",
+                                // data[i],
                               ),
                             ),
                           ),
-                        );
-                      }
-                      if (state is IncrementInitial) {
-                        return Positioned(
-                          left: state.offset.dx,
-                          top: state.offset.dy,
-                          child: Draggable(
-                            feedback: Container(),
-                            onDragEnd: (details) {
-                              incrementBloc.add(
-                                  UpdateCurrentPositionEvent(details.offset));
-                              // updatePosition(details.offset);
-                            },
-                            child: Transform.scale(
-                              scale: state.currentPosition,
-                              child: Container(
-                                margin: const EdgeInsets.all(15.0),
-                                padding: const EdgeInsets.all(3.0),
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.blueAccent,
-                                  ),
-                                ),
-                                child: Text(
-                                    // data[i],
-                                    "HELLO WORLD"),
-                              ),
-                            ),
-                          ),
-                        );
-                      }
-                      return Container(
-                        height: 100,
-                        width: 100,
-                        color: Colors.black,
+                        ),
                       );
-                    },
-                  ),
+                    }
+                    if (state is IncrementInitial) {
+                      return Positioned(
+                        left: 200,
+                        top: 200,
+                        child: Draggable(
+                          feedback: Container(),
+                          onDragEnd: (details) {
+                            incrementBloc.add(
+                                UpdateCurrentPositionEvent(details.offset));
+                            // updatePosition(details.offset);
+                          },
+                          child: Transform.scale(
+                            scale: state.currentPosition,
+                            child: Container(
+                              margin: const EdgeInsets.all(15.0),
+                              padding: const EdgeInsets.all(3.0),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.blueAccent,
+                                ),
+                              ),
+                              child: const Text(
+                                // data[i],
+                                "HELLO WORLD", style: TextStyle(fontSize: 30),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                    return Container(
+                      height: 100,
+                      width: 100,
+                      child: const Text(
+                          'Heyy dudee it is out side of the any state'),
+                    );
+                  },
+                ),
               ],
             ),
           )

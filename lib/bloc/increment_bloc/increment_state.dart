@@ -27,28 +27,3 @@ class ChangePositionState extends IncrementState {
   List<Object?> get props =>
       [lastPosition, currentPosition, changePositionOffset];
 }
-
-// class UpdateScaleState extends IncrementState {
-//   final Offset offset;
-//   final double lastPosition, currentPosition;
-//
-//   const UpdateScaleState(
-//       {required this.lastPosition,
-//       required this.currentPosition,
-//       required this.offset});
-//   @override
-//   // TODO: implement props
-//   List<Object?> get props => [offset];
-// }
-//
-// class ComitPositionState extends IncrementState {
-//   final double lastPosition, currentPosition;
-//   final Offset offset;
-//   const ComitPositionState(
-//       {required this.lastPosition,
-//       required this.currentPosition,
-//       required this.offset});
-//   @override
-//   // TODO: implement props
-//   List<Object?> get props => [lastPosition, currentPosition, offset];
-// }
